@@ -10,15 +10,7 @@ spec:
     template:
       metadata:
         labels:
-          kubevirt.io/domain: base-vm
-      spec:
-        accessCredentials:
-          - sshPublicKey:
-              propagationMethod:
-                noCloud: {}
-              source:
-                secret:
-                  secretName: ssh-acoral-tan-orangutan-25          
+          kubevirt.io/domain: base-vm    
       spec:
         domain:
           cpu:
