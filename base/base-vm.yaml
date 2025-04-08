@@ -54,19 +54,21 @@ spec:
               user: cloud-user
               password: 'redhat1234' 
               chpasswd: { expire: False }
-            packages:
-              - nginx
-              - firewalld
-              - openssh-server
-            runcmd:
-              - systemctl enable sshd
-              - systemctl start sshd
-              - systemctl enable firewalld
-              - systemctl start firewalld
-              - firewall-cmd --permanent --add-service=ssh
-              - firewall-cmd --permanent --add-service=http
-              - firewall-cmd --permanent --add-service=https
-              - firewall-cmd --reload
-              - echo "<h1>Olá do GitOps com ArgoCD + Cloud-Init!</h1>" > /usr/share/nginx/html/index.html
+              runcmd:
+               - echo "CLOUD-INIT TEST OK" > /root/cloud-init-test.txt
+              packages:
+                - nginx
+                - firewalld
+                - openssh-server
+              runcmd:
+               - systemctl enable sshd
+                - systemctl start sshd
+                - systemctl enable firewalld
+                - systemctl start firewalld
+                - firewall-cmd --permanent --add-service=ssh
+                - firewall-cmd --permanent --add-service=http
+                - firewall-cmd --permanent --add-service=https
+                - firewall-cmd --reload
+                - echo "<h1>Olá do GitOps com ArgoCD + Cloud-Init!</h1>" > /usr/share/nginx/html/index.html
               
           name: cloudinitdisk
