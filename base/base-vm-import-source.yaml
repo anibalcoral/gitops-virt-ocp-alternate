@@ -3,12 +3,13 @@ kind: VolumeImportSource
 metadata:
   name: base-vm-import-source
   namespace: beehive-virtual-machines
-#spec:
-  #source:
-    #registry:
-      #url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.3-748"
-      #pullMethod: node
 spec:
   source:
-    http:
-      url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-9-latest.x86_64.qcow2"
+    registry:
+      #url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.3-748"
+      url: "docker://quay.io/centos/centos:stream9"
+      pullMethod: node
+#spec:
+ # source:
+  #  http:
+   #   url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-9-latest.x86_64.qcow2"
