@@ -6,7 +6,7 @@
   value: true
 - op: replace
   path: /spec/template/spec/accessCredentials/sshPublicKey/propagationMethod/noCloud
-  value: {}
+  value: ''
 - op: replace
   path: /spec/template/spec/accessCredentials/sshPublicKey/source/secret/secretName
   value: ssh-bastion-access
