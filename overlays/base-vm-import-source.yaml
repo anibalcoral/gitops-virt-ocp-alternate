@@ -7,5 +7,5 @@ spec:
   source:
     registry:
       #url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.3-748"
-      url: "docker://quay.io/centos/centos:stream9"
+      url: docker://registry.internal/centos9-cloudinit:latest
       pullMethod: node
