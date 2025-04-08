@@ -4,8 +4,12 @@
 - op: replace
   path: /spec/running
   value: true
-
-- op: replace
-  path: /spec/template/spec/accessCredentials/sshPublicKey/source/secret/secretName
-  value: ssh-bastion-access
-  
+- op: add
+  path: /spec/template/spec/accessCredentials
+  value:
+    - sshPublicKey:
+        propagationMethod:
+          noCloud: {}
+        source:
+          secret:
+            secretName: ssh-bastion-access
