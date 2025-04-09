@@ -5,7 +5,7 @@ metadata:
   namespace: beehive-virtual-machines
 spec:
   source:
-    #registry:
+    registry:
       #url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.3-748"
       url: "docker://quay.io/containerdisks/fedora:latest"
       pullMethod: node
