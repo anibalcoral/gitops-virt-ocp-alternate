@@ -64,6 +64,8 @@ spec:
                 - systemctl start sshd
                 - systemctl enable firewalld
                 - systemctl start firewalld
+                - systemctl enable nginx
+                - systemctl start nginx
                 - firewall-cmd --permanent --add-service=ssh
                 - firewall-cmd --permanent --add-service=http
                 - firewall-cmd --permanent --add-service=https
