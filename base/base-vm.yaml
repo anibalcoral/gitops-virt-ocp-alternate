@@ -85,6 +85,7 @@ spec:
                 - firewall-cmd --permanent --add-service=http
                 - firewall-cmd --permanent --add-service=https
                 - firewall-cmd --reload
-                - echo "<h1>Olá do GitOps com ArgoCD + Cloud-Init!</h1>" > /usr/share/nginx/html/index.html
+                - echo "<h1>GitOps com ArgoCD + Cloud-Init!</h1><h2>Servidor: $(hostname)</h2>" > /usr/share/nginx/html/index.html
+
               
           name: cloudinitdisk
