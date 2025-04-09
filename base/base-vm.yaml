@@ -55,16 +55,16 @@ spec:
               password: 'redhat1234' 
               chpasswd: { expire: False }
               write_files:
-                - path: /etc/yum.repos.d/almalinux.repo
+                - path: /etc/yum.repos.d/centos.repo
                   content: |
                     [baseos]
-                    name=AlmaLinux BaseOS
+                    name=CentOS BaseOS
                     baseurl=http://mirror.centos.org/centos/9-stream/BaseOS/x86_64/os/
                     enabled=1
                     gpgcheck=0
 
                     [appstream]
-                    name=AlmaLinux AppStream
+                    name=CentOS AppStream
                     baseurl=http://mirror.centos.org/centos/9-stream/AppStream/x86_64/os/
                     enabled=1
                     gpgcheck=0
