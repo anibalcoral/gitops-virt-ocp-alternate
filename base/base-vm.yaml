@@ -55,22 +55,28 @@ spec:
               password: 'redhat1234' 
               chpasswd: { expire: False }
               write_files:
-                - path: /etc/yum.repos.d/centos.repo
+                - path: /etc/yum.repos.d/centos-stream.repo
                   content: |
                     [baseos]
-                    name=CentOS BaseOS
-                    baseurl=http://mirror.centos.org/centos/9-stream/BaseOS/x86_64/os/
+                    name=CentOS Stream $releasever - BaseOS
+                    mirrorlist=http://mirrorlist.centos.org/?release=9-stream&arch=$basearch&repo=baseos
                     enabled=1
-                    gpgcheck=0
+                    gpgcheck=1
+                    gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official
 
                     [appstream]
-                    name=CentOS AppStream
-                    baseurl=http://mirror.centos.org/centos/9-stream/AppStream/x86_64/os/
+                    name=CentOS Stream $releasever - AppStream
+                    mirrorlist=http://mirrorlist.centos.org/?release=9-stream&arch=$basearch&repo=appstream
                     enabled=1
-                    gpgcheck=0
+                    gpgcheck=1
+                    gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official
+
+              packages:
+                - nginx
+                - firewalld
+                - openssh-server
               runcmd:
                 - echo "CLOUD-INIT TEST OK" > /root/cloud-init-test.txt
-                - dnf -y install nginx firewalld openssh-server
                 - systemctl enable sshd
                 - systemctl start sshd
                 - systemctl enable firewalld
