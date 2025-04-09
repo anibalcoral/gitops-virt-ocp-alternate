@@ -54,27 +54,6 @@ spec:
               user: cloud-user
               password: 'redhat1234' 
               chpasswd: { expire: False }
-              write_files:
-                - path: /etc/yum.repos.d/CentOS-Stream-BaseOS.repo
-                  permissions: '0644'
-                  content: |
-                    [baseos]
-                    name=CentOS Stream $releasever - BaseOS
-                    baseurl=http://mirror.centos.org/centos/9-stream/BaseOS/x86_64/os/
-                    enabled=1
-                    gpgcheck=1
-                    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
-                - path: /etc/yum.repos.d/CentOS-Stream-AppStream.repo
-                  permissions: '0644'
-                  content: |
-                    [appstream]
-                    name=CentOS Stream $releasever - AppStream
-                    baseurl=http://mirror.centos.org/centos/9-stream/AppStream/x86_64/os/
-                    enabled=1
-                    gpgcheck=1
-                    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
               packages:
                 - nginx
                 - firewalld
@@ -89,9 +68,5 @@ spec:
                 - firewall-cmd --permanent --add-service=http
                 - firewall-cmd --permanent --add-service=https
                 - firewall-cmd --reload
-                - [ /bin/bash, -c, 'echo "<h1>GitOps com ArgoCD + Cloud-Init!</h1><h2>Servidor: $(hostname)</h2>" > /usr/share/nginx/html/index.html' ]
-
-
-
-              
+                - [ /bin/bash, -c, 'echo "<h1>GitOps com ArgoCD + Cloud-Init!</h1><h2>Servidor: $(hostname)</h2>" > /usr/share/nginx/html/index.html' ]           
           name: cloudinitdisk

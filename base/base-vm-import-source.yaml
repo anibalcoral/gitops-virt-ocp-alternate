@@ -7,7 +7,7 @@ spec:
   source:
     #registry:
       #url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.3-748"
-      url: "quay.io/containerdisks/fedora:latest"
+      url: "docker://quay.io/containerdisks/fedora:latest"
       pullMethod: node
     #http:
       #url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-9-latest.x86_64.qcow2"
